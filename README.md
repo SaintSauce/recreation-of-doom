@@ -33,6 +33,7 @@ A step-by-step series of examples that tell you how to get a development environ
    cmake --build .
 
 3. **Run the project:**
+   ```sh
    ./DoomExecutable
 
 Enjoy! (not yet tho)
