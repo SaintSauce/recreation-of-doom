@@ -117,41 +117,65 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named GLFWExampleC
+# Target rules for targets named DoomExecutable
 
 # Build rule for target.
-GLFWExampleC: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GLFWExampleC
-.PHONY : GLFWExampleC
+DoomExecutable: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DoomExecutable
+.PHONY : DoomExecutable
 
 # fast build rule for target.
-GLFWExampleC/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWExampleC.dir/build.make CMakeFiles/GLFWExampleC.dir/build
-.PHONY : GLFWExampleC/fast
+DoomExecutable/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/build
+.PHONY : DoomExecutable/fast
 
-main.o: main.c.o
-.PHONY : main.o
+src/glad.o: src/glad.c.o
+.PHONY : src/glad.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWExampleC.dir/build.make CMakeFiles/GLFWExampleC.dir/main.c.o
-.PHONY : main.c.o
+src/glad.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/glad.c.o
+.PHONY : src/glad.c.o
 
-main.i: main.c.i
-.PHONY : main.i
+src/glad.i: src/glad.c.i
+.PHONY : src/glad.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWExampleC.dir/build.make CMakeFiles/GLFWExampleC.dir/main.c.i
-.PHONY : main.c.i
+src/glad.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/glad.c.i
+.PHONY : src/glad.c.i
 
-main.s: main.c.s
-.PHONY : main.s
+src/glad.s: src/glad.c.s
+.PHONY : src/glad.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWExampleC.dir/build.make CMakeFiles/GLFWExampleC.dir/main.c.s
-.PHONY : main.c.s
+src/glad.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/glad.c.s
+.PHONY : src/glad.c.s
+
+src/glfw_tutorial.o: src/glfw_tutorial.c.o
+.PHONY : src/glfw_tutorial.o
+
+# target to build an object file
+src/glfw_tutorial.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.o
+.PHONY : src/glfw_tutorial.c.o
+
+src/glfw_tutorial.i: src/glfw_tutorial.c.i
+.PHONY : src/glfw_tutorial.i
+
+# target to preprocess a source file
+src/glfw_tutorial.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.i
+.PHONY : src/glfw_tutorial.c.i
+
+src/glfw_tutorial.s: src/glfw_tutorial.c.s
+.PHONY : src/glfw_tutorial.s
+
+# target to generate assembly for a file
+src/glfw_tutorial.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.s
+.PHONY : src/glfw_tutorial.c.s
 
 # Help Target
 help:
@@ -161,10 +185,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... GLFWExampleC"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... DoomExecutable"
+	@echo "... src/glad.o"
+	@echo "... src/glad.i"
+	@echo "... src/glad.s"
+	@echo "... src/glfw_tutorial.o"
+	@echo "... src/glfw_tutorial.i"
+	@echo "... src/glfw_tutorial.s"
 .PHONY : help
 
 

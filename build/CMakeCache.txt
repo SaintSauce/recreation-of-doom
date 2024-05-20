@@ -146,7 +146,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=GLFWExampleC
+CMAKE_PROJECT_NAME:STATIC=Doom
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib
@@ -212,6 +212,24 @@ CMAKE_TAPI:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeD
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+
+//Value Computed by CMake
+DoomExecutable_BINARY_DIR:STATIC=/Users/pingan/recreation-of-doom/build
+
+//Value Computed by CMake
+DoomExecutable_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+DoomExecutable_SOURCE_DIR:STATIC=/Users/pingan/recreation-of-doom
+
+//Value Computed by CMake
+Doom_BINARY_DIR:STATIC=/Users/pingan/recreation-of-doom/build
+
+//Value Computed by CMake
+Doom_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Doom_SOURCE_DIR:STATIC=/Users/pingan/recreation-of-doom
 
 //Value Computed by CMake
 GLFWExampleC_BINARY_DIR:STATIC=/Users/pingan/recreation-of-doom/build

@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /Users/pingan/recreation-of-doom/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/GLFWExampleC.dir/all
+all: CMakeFiles/DoomExecutable.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/GLFWExampleC.dir/clean
+clean: CMakeFiles/DoomExecutable.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/GLFWExampleC.dir
+# Target rules for target CMakeFiles/DoomExecutable.dir
 
 # All Build rule for target.
-CMakeFiles/GLFWExampleC.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWExampleC.dir/build.make CMakeFiles/GLFWExampleC.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWExampleC.dir/build.make CMakeFiles/GLFWExampleC.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/pingan/recreation-of-doom/build/CMakeFiles --progress-num=1,2 "Built target GLFWExampleC"
-.PHONY : CMakeFiles/GLFWExampleC.dir/all
+CMakeFiles/DoomExecutable.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/pingan/recreation-of-doom/build/CMakeFiles --progress-num=1,2,3 "Built target DoomExecutable"
+.PHONY : CMakeFiles/DoomExecutable.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/GLFWExampleC.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pingan/recreation-of-doom/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/GLFWExampleC.dir/all
+CMakeFiles/DoomExecutable.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pingan/recreation-of-doom/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/DoomExecutable.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pingan/recreation-of-doom/build/CMakeFiles 0
-.PHONY : CMakeFiles/GLFWExampleC.dir/rule
+.PHONY : CMakeFiles/DoomExecutable.dir/rule
 
 # Convenience name for target.
-GLFWExampleC: CMakeFiles/GLFWExampleC.dir/rule
-.PHONY : GLFWExampleC
+DoomExecutable: CMakeFiles/DoomExecutable.dir/rule
+.PHONY : DoomExecutable
 
 # clean rule for target.
-CMakeFiles/GLFWExampleC.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLFWExampleC.dir/build.make CMakeFiles/GLFWExampleC.dir/clean
-.PHONY : CMakeFiles/GLFWExampleC.dir/clean
+CMakeFiles/DoomExecutable.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/clean
+.PHONY : CMakeFiles/DoomExecutable.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

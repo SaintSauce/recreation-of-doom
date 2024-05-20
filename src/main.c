@@ -3,16 +3,15 @@
 #include <stdio.h>
 
 int main(void) {
-	GLFWwindow* window;
-
 	// Initialize the library
 	if (!glfwInit()) {
 		return -1;
 	}
 
 	// Create a windowed mode window and its OpenGL context
-	window = glfwCreateWindow(640, 480, "Hello GLFW", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(640, 480, "Hello GLFW", NULL, NULL);
 	if (!window) {
+		// Window or OpenGL context creation failed
 		glfwTerminate();
 		return -1;
 	}
@@ -32,6 +31,7 @@ int main(void) {
 		glfwPollEvents();
 	}
 
+	// terminate when application exits
 	glfwTerminate();
 	return 0;
 }
