@@ -24,3 +24,15 @@ A step-by-step series of examples that tell you how to get a development environ
    ```sh
    git clone https://github.com/yourusername/recreation-of-doom.git
    cd recreation-of-doom
+
+2. **Build the project:**
+
+   ```sh
+   cd build
+   cmake ..
+   cmake --build .
+
+3. **Run the project:**
+   ./DoomExecutable
+
+Enjoy! (not yet tho)
