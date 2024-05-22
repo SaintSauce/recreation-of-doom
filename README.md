@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them:
+What you need to install the software and how to install them:
 
 - CMake (Version 3.10 or higher)
 - A C compiler (GCC, Clang, etc.)
@@ -17,7 +17,7 @@ What things you need to install the software and how to install them:
 
 ### Installing
 
-A step-by-step series of examples that tell you how to get a development environment running:
+A step-by-step series of the necessary commands that tell you how to get a development environment running, assuming you are running this on a Git supported interface:
 
 1. **Clone the repository:**
 
