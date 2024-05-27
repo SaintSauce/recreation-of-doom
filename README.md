@@ -1,6 +1,6 @@
 # Recreation of Doom
 
-This project is a modern recreation of the classic game "Doom," utilizing C, GLFW, and GLAD for graphics rendering. The project is designed to demonstrate the use of modern graphics libraries in building game engines that are capable of running on a variety of hardware platforms.
+This project is a modern recreation of the classic game "Doom," utilizing C, GLFW, and GLEW for graphics rendering. The project is designed to demonstrate the use of modern graphics libraries in building game engines that are capable of running on a variety of hardware platforms.
 
 ## Getting Started
 
