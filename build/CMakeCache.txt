@@ -146,7 +146,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Doom
+CMAKE_PROJECT_NAME:STATIC=DoomGame
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib
@@ -223,6 +223,15 @@ DoomExecutable_IS_TOP_LEVEL:STATIC=ON
 DoomExecutable_SOURCE_DIR:STATIC=/Users/pingan/recreation-of-doom
 
 //Value Computed by CMake
+DoomGame_BINARY_DIR:STATIC=/Users/pingan/recreation-of-doom/build
+
+//Value Computed by CMake
+DoomGame_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+DoomGame_SOURCE_DIR:STATIC=/Users/pingan/recreation-of-doom
+
+//Value Computed by CMake
 Doom_BINARY_DIR:STATIC=/Users/pingan/recreation-of-doom/build
 
 //Value Computed by CMake
@@ -230,6 +239,15 @@ Doom_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 Doom_SOURCE_DIR:STATIC=/Users/pingan/recreation-of-doom
+
+//The directory containing a CMake configuration file for GLEW.
+GLEW_DIR:PATH=/opt/homebrew/lib/cmake/glew
+
+//Path to a library.
+GLEW_LIBRARY_DEBUG:FILEPATH=GLEW_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+GLEW_LIBRARY_RELEASE:FILEPATH=GLEW_LIBRARY_RELEASE-NOTFOUND
 
 //Value Computed by CMake
 GLFWExampleC_BINARY_DIR:STATIC=/Users/pingan/recreation-of-doom/build
@@ -251,6 +269,9 @@ OPENGL_gl_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/
 
 //OpenGL GLU library
 OPENGL_glu_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework
+
+//The directory containing a CMake configuration file for glad.
+glad_DIR:PATH=glad_DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for glfw3.
 glfw3_DIR:PATH=/opt/homebrew/lib/cmake/glfw3
@@ -401,10 +422,16 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding GLEW
+FIND_PACKAGE_MESSAGE_DETAILS_GLEW:INTERNAL=[/opt/homebrew/lib/cmake/glew/glew-config.cmake][v()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework][/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework][c ][v()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//ADVANCED property for variable: GLEW_LIBRARY_DEBUG
+GLEW_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLEW_LIBRARY_RELEASE
+GLEW_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_GLU_INCLUDE_DIR
 OPENGL_GLU_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_INCLUDE_DIR

@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/DoomExecutable.dir/src/glad.c.o"
-  "CMakeFiles/DoomExecutable.dir/src/glad.c.o.d"
-  "CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.o"
-  "CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.o.d"
+  "CMakeFiles/DoomExecutable.dir/src/main.c.o"
+  "CMakeFiles/DoomExecutable.dir/src/main.c.o.d"
   "DoomExecutable"
   "DoomExecutable.pdb"
 )

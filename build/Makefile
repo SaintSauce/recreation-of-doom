@@ -129,53 +129,29 @@ DoomExecutable/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/build
 .PHONY : DoomExecutable/fast
 
-src/glad.o: src/glad.c.o
-.PHONY : src/glad.o
+src/main.o: src/main.c.o
+.PHONY : src/main.o
 
 # target to build an object file
-src/glad.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/glad.c.o
-.PHONY : src/glad.c.o
+src/main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/main.c.o
+.PHONY : src/main.c.o
 
-src/glad.i: src/glad.c.i
-.PHONY : src/glad.i
-
-# target to preprocess a source file
-src/glad.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/glad.c.i
-.PHONY : src/glad.c.i
-
-src/glad.s: src/glad.c.s
-.PHONY : src/glad.s
-
-# target to generate assembly for a file
-src/glad.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/glad.c.s
-.PHONY : src/glad.c.s
-
-src/glfw_tutorial.o: src/glfw_tutorial.c.o
-.PHONY : src/glfw_tutorial.o
-
-# target to build an object file
-src/glfw_tutorial.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.o
-.PHONY : src/glfw_tutorial.c.o
-
-src/glfw_tutorial.i: src/glfw_tutorial.c.i
-.PHONY : src/glfw_tutorial.i
+src/main.i: src/main.c.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-src/glfw_tutorial.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.i
-.PHONY : src/glfw_tutorial.c.i
+src/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/main.c.i
+.PHONY : src/main.c.i
 
-src/glfw_tutorial.s: src/glfw_tutorial.c.s
-.PHONY : src/glfw_tutorial.s
+src/main.s: src/main.c.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-src/glfw_tutorial.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.s
-.PHONY : src/glfw_tutorial.c.s
+src/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/main.c.s
+.PHONY : src/main.c.s
 
 # Help Target
 help:
@@ -186,12 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DoomExecutable"
-	@echo "... src/glad.o"
-	@echo "... src/glad.i"
-	@echo "... src/glad.s"
-	@echo "... src/glfw_tutorial.o"
-	@echo "... src/glfw_tutorial.i"
-	@echo "... src/glfw_tutorial.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

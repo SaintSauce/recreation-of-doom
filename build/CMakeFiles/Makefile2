@@ -81,12 +81,12 @@ clean: CMakeFiles/DoomExecutable.dir/clean
 CMakeFiles/DoomExecutable.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/pingan/recreation-of-doom/build/CMakeFiles --progress-num=1,2,3 "Built target DoomExecutable"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/pingan/recreation-of-doom/build/CMakeFiles --progress-num=1,2 "Built target DoomExecutable"
 .PHONY : CMakeFiles/DoomExecutable.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/DoomExecutable.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pingan/recreation-of-doom/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pingan/recreation-of-doom/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/DoomExecutable.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pingan/recreation-of-doom/build/CMakeFiles 0
 .PHONY : CMakeFiles/DoomExecutable.dir/rule

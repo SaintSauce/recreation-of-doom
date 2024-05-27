@@ -4,12 +4,17 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-#define res			1			// screen resolution multiples
+#define res			6			// screen resolution multiples
 #define SW			160*res		// screen width
 #define SH			120*res		// screen height
-#define CENTER_X 	(SW/2)		// half of screen width
-#define CENTER_Y	(SH/2)		// half of screen height
+#define SW2 		(SW/2)		// half of screen width
+#define SH2			(SH/2)		// half of screen height
 // ----------------------------------------------------------------------
+typedef struct
+{
+	int fr1, fr2;		// create constant framerate
+} time; time T;
+
 typedef struct 
 {	
 	int w, s, d, a;		// move up, down, left, right
@@ -30,23 +35,71 @@ typedef struct
 	int l;				// look up and down
 } player; player P;
 // ----------------------------------------------------------------------
-void movePlayer()		// can remove
+// draw a pixel at (x, y) with color rgb
+void pixel(int x, int y, int c)
+{
+	int rgb[3];
+	if (c == 0) { rgb[0] = 255; rgb[1] = 255; rgb[2] =   0; } 	// yellow
+	if (c == 1) { rgb[0] = 160; rgb[1] = 160; rgb[2] =   0; } 	// dark yellow
+	if (c == 2) { rgb[0] = 	 0; rgb[1] = 255; rgb[2] =   0; } 	// green
+	if (c == 3) { rgb[0] =   0; rgb[1] = 160; rgb[2] =   0; } 	// dark green
+	if (c == 4) { rgb[0] =   0; rgb[1] = 255; rgb[2] = 255; } 	// cyan
+	if (c == 5) { rgb[0] =   0; rgb[1] = 160; rgb[2] = 160; } 	// dark cyan
+	if (c == 6) { rgb[0] = 160; rgb[1] = 100; rgb[2] =   0; } 	// brown
+	if (c == 7) { rgb[0] = 110; rgb[1] =  50; rgb[2] =   0; } 	// dark brown
+	if (c == 8) { rgb[0] =   0; rgb[1] =  60; rgb[2] = 130; } 	// background
+
+	// Set the color
+    glColor3ub(rgb[0], rgb[1], rgb[2]);
+
+    // Calculate the normalized device coordinates (-1 to 1) for the pixel
+    float ndcX = ((float)x / (float)SW2) - 1.0f;
+    float ndcY = 1.0f - ((float)y / (float)SH2);
+
+    // Set up an orthographic projection
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(-1, 1, -1, 1, -1, 1);
+
+    // Set up the modelview matrix
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    // Draw a small rectangle (quad) at the pixel's position
+    glBegin(GL_QUADS);
+    glVertex2f(ndcX, ndcY);
+    glVertex2f(ndcX + (2.0f / SW), ndcY);
+    glVertex2f(ndcX + (2.0f / SW), ndcY - (2.0f / SH));
+    glVertex2f(ndcX, ndcY - (2.0f / SH));
+    glEnd();
+}
+
+void movePlayer()
 {
 	// move up, down, left, right
-	if (K.a == 1 && K.m == 0) { printf("left\n"); }
-	if (K.d == 1 && K.m == 0) { printf("right\n"); }
+	if (K.a == 1 && K.m == 0) { P.a -= 4; if (P.a < 0) { P.a += 360; } }
+	if (K.d == 1 && K.m == 0) { P.a += 4; if (P.a >359) { P.a -= 360; } }
 	if (K.w == 1 && K.m == 0) { printf("up\n"); }
 	if (K.s == 1 && K.m == 0) { printf("down\n"); }
 
+	int dx = M.sin[P.a] * 10.0;
+	int dy = M.cos[P.a] * 10.0;
+
 	// strafe left
-	if (K.sl == 1) { printf("strafe left\n"); }
-	if (K.sr == 1) { printf("strafe right\n"); }
+	if (K.sl == 1) { P.x -= dy; P.y += dx; }
+	if (K.sr == 1) { P.x += dy; P.y -= dx; }
 
 	// move up, down, look up, look down
 	if (K.a == 1 && K.m == 1) { printf("look up\n"); }
 	if (K.d == 1 && K.m == 1) { printf("look down\n"); }
 	if (K.w == 1 && K.m == 1) { printf("move up\n"); }
 	if (K.s == 1 && K.m == 1) { printf("move down\n"); }
+}
+
+void clearBackground()
+{
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
 }
 
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) 
@@ -70,15 +123,39 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
     }
 }
 
+int tick;
+
 void draw3D()
 {
-	
+	int x, y, c = 0;
+	for (y = 0; y < SH2; y++) {
+		for (x = 0; x < SW2; x++) {
+			pixel(x,y,c); 
+   			c+=1; if( c > 8 ){ c = 0;}
+		}
+	}
+	//frame rate
+ 	tick += 1; if (tick > 20){ tick = 0;} pixel(SW2, SH2 + tick, 0); 
 }
 
-void display()
+void display(GLFWwindow* window)
 {
+	int x, y;
+	if (T.fr1 - T.fr2 >= 50) {		//only draw 20 frames/second
+		movePlayer();
+		draw3D();
+		T.fr2 = T.fr1;
+		glfwSwapBuffers(window); // Swap front and back buffers
+	}
 
+	T.fr1 = (int) glfwGetTime();
+	glfwPollEvents(); // Poll for and process events
+
+	// Delay to control the frame rate
+    // Adjust the value (in seconds) to control the frame rate
+    glfwSwapInterval(1);
 }
+
 
 void init()
 {
@@ -101,10 +178,12 @@ int main(void)
 		return -1;
 	}
 
+    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);		// prevent window rescaling
+
 	// Create a windowed mode window and its OpenGL context
-	GLFWwindow* window = glfwCreateWindow(640, 480, "Doom Game", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(SW, SH, "Doom Game", NULL, NULL);
 	if (!window) {
-		glfwTerminate();	// fail
+		glfwTerminate();
 		return -1;
 	}
 
@@ -121,16 +200,16 @@ int main(void)
 	// Register the key callback
     glfwSetKeyCallback(window, keyCallback);
 
+	// Initialize your structures and variables
+    init();
+
 	// Loop until the user closes the window
 	while (!glfwWindowShouldClose(window)) {
 		// Render here
-        glClear(GL_COLOR_BUFFER_BIT);
+        // glClear(GL_COLOR_BUFFER_BIT);
 	
-		// Swap front and back buffers
-		glfwSwapBuffers(window);
-
-		// Poll for and process events
-		glfwPollEvents();
+		// Call the display function
+		display(window);
 	}
 
 	// Terminate GLFW

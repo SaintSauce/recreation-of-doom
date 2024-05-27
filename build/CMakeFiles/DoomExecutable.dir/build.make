@@ -69,48 +69,33 @@ include CMakeFiles/DoomExecutable.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/DoomExecutable.dir/flags.make
 
-CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.o: CMakeFiles/DoomExecutable.dir/flags.make
-CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.o: /Users/pingan/recreation-of-doom/src/glfw_tutorial.c
-CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.o: CMakeFiles/DoomExecutable.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/pingan/recreation-of-doom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.o -MF CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.o.d -o CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.o -c /Users/pingan/recreation-of-doom/src/glfw_tutorial.c
+CMakeFiles/DoomExecutable.dir/src/main.c.o: CMakeFiles/DoomExecutable.dir/flags.make
+CMakeFiles/DoomExecutable.dir/src/main.c.o: /Users/pingan/recreation-of-doom/src/main.c
+CMakeFiles/DoomExecutable.dir/src/main.c.o: CMakeFiles/DoomExecutable.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/pingan/recreation-of-doom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/DoomExecutable.dir/src/main.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DoomExecutable.dir/src/main.c.o -MF CMakeFiles/DoomExecutable.dir/src/main.c.o.d -o CMakeFiles/DoomExecutable.dir/src/main.c.o -c /Users/pingan/recreation-of-doom/src/main.c
 
-CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/pingan/recreation-of-doom/src/glfw_tutorial.c > CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.i
+CMakeFiles/DoomExecutable.dir/src/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/DoomExecutable.dir/src/main.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/pingan/recreation-of-doom/src/main.c > CMakeFiles/DoomExecutable.dir/src/main.c.i
 
-CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/pingan/recreation-of-doom/src/glfw_tutorial.c -o CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.s
-
-CMakeFiles/DoomExecutable.dir/src/glad.c.o: CMakeFiles/DoomExecutable.dir/flags.make
-CMakeFiles/DoomExecutable.dir/src/glad.c.o: /Users/pingan/recreation-of-doom/src/glad.c
-CMakeFiles/DoomExecutable.dir/src/glad.c.o: CMakeFiles/DoomExecutable.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/pingan/recreation-of-doom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/DoomExecutable.dir/src/glad.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DoomExecutable.dir/src/glad.c.o -MF CMakeFiles/DoomExecutable.dir/src/glad.c.o.d -o CMakeFiles/DoomExecutable.dir/src/glad.c.o -c /Users/pingan/recreation-of-doom/src/glad.c
-
-CMakeFiles/DoomExecutable.dir/src/glad.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/DoomExecutable.dir/src/glad.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/pingan/recreation-of-doom/src/glad.c > CMakeFiles/DoomExecutable.dir/src/glad.c.i
-
-CMakeFiles/DoomExecutable.dir/src/glad.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/DoomExecutable.dir/src/glad.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/pingan/recreation-of-doom/src/glad.c -o CMakeFiles/DoomExecutable.dir/src/glad.c.s
+CMakeFiles/DoomExecutable.dir/src/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/DoomExecutable.dir/src/main.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/pingan/recreation-of-doom/src/main.c -o CMakeFiles/DoomExecutable.dir/src/main.c.s
 
 # Object files for target DoomExecutable
 DoomExecutable_OBJECTS = \
-"CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.o" \
-"CMakeFiles/DoomExecutable.dir/src/glad.c.o"
+"CMakeFiles/DoomExecutable.dir/src/main.c.o"
 
 # External object files for target DoomExecutable
 DoomExecutable_EXTERNAL_OBJECTS =
 
-DoomExecutable: CMakeFiles/DoomExecutable.dir/src/glfw_tutorial.c.o
-DoomExecutable: CMakeFiles/DoomExecutable.dir/src/glad.c.o
+DoomExecutable: CMakeFiles/DoomExecutable.dir/src/main.c.o
 DoomExecutable: CMakeFiles/DoomExecutable.dir/build.make
 DoomExecutable: /opt/homebrew/lib/libglfw.3.4.dylib
+DoomExecutable: /opt/homebrew/lib/libGLEW.2.2.0.dylib
 DoomExecutable: CMakeFiles/DoomExecutable.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/pingan/recreation-of-doom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable DoomExecutable"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/pingan/recreation-of-doom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable DoomExecutable"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DoomExecutable.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
