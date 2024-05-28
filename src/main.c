@@ -1,41 +1,30 @@
 #define GL_SILENCE_DEPRECATION
+
 #include <math.h>
 #include <stdio.h>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+#include <GL/freeglut.h>
 
-#define res			6			// screen resolution multiples
-#define SW			160*res		// screen width
-#define SH			120*res		// screen height
-#define SW2 		(SW/2)		// half of screen width
-#define SH2			(SH/2)		// half of screen height
+#define res				1						// 
+#define SW				160 * res				// screen width
+#define SH				120 * res				// screen height
+#define SW2				(SW/2)					// half of screen width
+#define SH2				(SH/2)					// half of screen height
+#define pixelScale		4/res					// OpenGL pixel scale
+#define GLSW			(SW * pixelScale)		// OpenGL Window Width
+#define GLSH			(SH * pixelScale)		// OpenGL Window Height
 // ----------------------------------------------------------------------
-typedef struct
+typedef struct 
 {
-	int fr1, fr2;		// create constant framerate
+	int fr1, fr2;			// to create constant frame rate
 } time; time T;
 
 typedef struct 
-{	
-	int w, s, d, a;		// move up, down, left, right
-	int sl, sr;			// strafe left, right
-	int m;				// move up, down, look up, down
+{
+	int w, a, s, d;			// move up, down, left, right
+	int sl, sr;				// strafe left, right
+	int m;					// move up, down, look up, down
 } keys; keys K;
-
-typedef struct
-{
-	float cos[360];
-	float sin[360];
-} math; math M;
-
-typedef struct
-{
-	int x, y, z;		// player position
-	int a;				// angle of rotation left, right
-	int l;				// look up and down
-} player; player P;
 // ----------------------------------------------------------------------
-// draw a pixel at (x, y) with color rgb
 void pixel(int x, int y, int c)
 {
 	int rgb[3];
@@ -49,45 +38,23 @@ void pixel(int x, int y, int c)
 	if (c == 7) { rgb[0] = 110; rgb[1] =  50; rgb[2] =   0; } 	// dark brown
 	if (c == 8) { rgb[0] =   0; rgb[1] =  60; rgb[2] = 130; } 	// background
 
-	// Set the color
-    glColor3ub(rgb[0], rgb[1], rgb[2]);
-
-    // Calculate the normalized device coordinates (-1 to 1) for the pixel
-    float ndcX = ((float)x / (float)SW2) - 1.0f;
-    float ndcY = 1.0f - ((float)y / (float)SH2);
-
-    // Set up an orthographic projection
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glOrtho(-1, 1, -1, 1, -1, 1);
-
-    // Set up the modelview matrix
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-
-    // Draw a small rectangle (quad) at the pixel's position
-    glBegin(GL_QUADS);
-    glVertex2f(ndcX, ndcY);
-    glVertex2f(ndcX + (2.0f / SW), ndcY);
-    glVertex2f(ndcX + (2.0f / SW), ndcY - (2.0f / SH));
-    glVertex2f(ndcX, ndcY - (2.0f / SH));
-    glEnd();
+    glColor3ub(rgb[0], rgb[1], rgb[2]);		// set the color
+	glBegin(GL_POINTS);
+	glVertex2f(x * pixelScale + 2, y * pixelScale + 2);
+	glEnd();
 }
 
 void movePlayer()
 {
 	// move up, down, left, right
-	if (K.a == 1 && K.m == 0) { P.a -= 4; if (P.a < 0) { P.a += 360; } }
-	if (K.d == 1 && K.m == 0) { P.a += 4; if (P.a >359) { P.a -= 360; } }
+	if (K.a == 1 && K.m == 0) { printf("left\n"); }
+	if (K.d == 1 && K.m == 0) { printf("right\n"); }
 	if (K.w == 1 && K.m == 0) { printf("up\n"); }
 	if (K.s == 1 && K.m == 0) { printf("down\n"); }
 
-	int dx = M.sin[P.a] * 10.0;
-	int dy = M.cos[P.a] * 10.0;
-
 	// strafe left
-	if (K.sl == 1) { P.x -= dy; P.y += dx; }
-	if (K.sr == 1) { P.x += dy; P.y -= dx; }
+	if (K.sl == 1) { printf("strafe left\n"); }
+	if (K.sr == 1) { printf("strafe right\n"); }
 
 	// move up, down, look up, look down
 	if (K.a == 1 && K.m == 1) { printf("look up\n"); }
@@ -98,29 +65,14 @@ void movePlayer()
 
 void clearBackground()
 {
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-}
-
-void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) 
-{
-	if (action == GLFW_PRESS || action == GLFW_RELEASE) {
-		int state = (action == GLFW_PRESS) ? 1 : 0;
-
-		switch(key) {
-			case GLFW_KEY_W: K.w = state; break;
-            case GLFW_KEY_S: K.s = state; break;
-            case GLFW_KEY_A: K.a = state; break;
-            case GLFW_KEY_D: K.d = state; break;
-            case GLFW_KEY_LEFT_SHIFT: K.sl = state; break;
-            case GLFW_KEY_RIGHT_SHIFT: K.sr = state; break;
-            case GLFW_KEY_M: K.m = state; break;
+	int x, y;
+	for (y = 0; y < SH; y++) 
+	{
+		for (x = 0; x < SW; x++) 
+		{
+			pixel(x, y, 8);				// clear screen to background color
 		}
 	}
-
-	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
-        glfwSetWindowShouldClose(window, GLFW_TRUE);
-    }
 }
 
 int tick;
@@ -128,91 +80,88 @@ int tick;
 void draw3D()
 {
 	int x, y, c = 0;
-	for (y = 0; y < SH2; y++) {
-		for (x = 0; x < SW2; x++) {
-			pixel(x,y,c); 
-   			c+=1; if( c > 8 ){ c = 0;}
+	for (y = 0; y < SH2; y++)
+	{
+		for (x = 0; x < SW2; x++)
+		{
+			pixel(x, y, c);
+			c += 1;
+			if (c > 8) 
+			{ 
+				c = 0; 					// reset color to background
+			}
 		}
 	}
-	//frame rate
- 	tick += 1; if (tick > 20){ tick = 0;} pixel(SW2, SH2 + tick, 0); 
+
+	// framerate
+	tick += 1;
+	if (tick > 20)
+	{
+		tick = 0;
+	}
+	pixel(SW2, SH2 + tick, 0);
 }
 
-void display(GLFWwindow* window)
+void display()
 {
 	int x, y;
-	if (T.fr1 - T.fr2 >= 50) {		//only draw 20 frames/second
+	if (T.fr1 - T.fr2 >= 50)				// only draw 50 frames per second
+	{
+		clearBackground();
 		movePlayer();
 		draw3D();
+
 		T.fr2 = T.fr1;
-		glfwSwapBuffers(window); // Swap front and back buffers
+		glutSwapBuffers();
+		glutReshapeWindow(GLSW, GLSH);		// prevent window rescaling
 	}
 
-	T.fr1 = (int) glfwGetTime();
-	glfwPollEvents(); // Poll for and process events
-
-	// Delay to control the frame rate
-    // Adjust the value (in seconds) to control the frame rate
-    glfwSwapInterval(1);
+	T.fr1 = glutGet(GLUT_ELAPSED_TIME);          //1000 ms per second
+	glutPostRedisplay();
 }
 
+void KeysDown(unsigned char key, int x, int y)   
+{ 
+    if (key == 'w') { K.w = 1; } 
+    if (key == 's') { K.s = 1; } 
+    if (key == 'a') { K.a = 1; } 
+    if (key == 'd') { K.d = 1; } 
+    if (key == 'm') { K.m = 1; } 
+    if (key == ',') { K.sr = 1; } 
+    if (key == '.') { K.sl = 1; } 
+    glutPostRedisplay();
+}
+
+void KeysUp(unsigned char key, int x, int y)
+{ 
+    if (key == 'w') { K.w = 0; }
+    if (key == 's') { K.s = 0; }
+    if (key == 'a') { K.a = 0; }
+    if (key == 'd') { K.d = 0; }
+    if (key == 'm') { K.m = 0; }
+    if (key == ',') { K.sr = 0; } 
+    if (key == '.') { K.sl = 0; }
+    glutPostRedisplay();
+}
 
 void init()
-{
-	int x;
-
-	// store sin/cos in degrees
-	for (x = 0; x < 360; x++) {
-		M.cos[x] = cos(x / 180.0 * M_PI);
-		M.sin[x] = sin(x / 180.0 * M_PI);
-	}
-
-	// init player
-	P.x = 70; P.y = -110; P.z = 20; P.a = 0; P.l = 0;
+{   
+	   
 }
 
-int main(void) 
+int main (int argc, char* argv[])
 {
-	// Initialize the library
-	if (!glfwInit()) {
-		return -1;
-	}
-
-    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);		// prevent window rescaling
-
-	// Create a windowed mode window and its OpenGL context
-	GLFWwindow* window = glfwCreateWindow(SW, SH, "Doom Game", NULL, NULL);
-	if (!window) {
-		glfwTerminate();
-		return -1;
-	}
-
-	// Make the window's context current
-	glfwMakeContextCurrent(window);
-
-	// Initialize GLEW
-    glewExperimental = GL_TRUE; // Needed for core profile
-    if (glewInit() != GLEW_OK) {
-        fprintf(stderr, "Failed to initialize GLEW\n");
-        return -1;
-    }
-
-	// Register the key callback
-    glfwSetKeyCallback(window, keyCallback);
-
-	// Initialize your structures and variables
-    init();
-
-	// Loop until the user closes the window
-	while (!glfwWindowShouldClose(window)) {
-		// Render here
-        // glClear(GL_COLOR_BUFFER_BIT);
-	
-		// Call the display function
-		display(window);
-	}
-
-	// Terminate GLFW
-	glfwTerminate();
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+	glutInitWindowPosition(GLSW/2,GLSH/2);
+	glutInitWindowSize(GLSW,GLSH);
+	glutCreateWindow(""); 
+	glPointSize(pixelScale);                        //pixel size
+	gluOrtho2D(0,GLSW,0,GLSH);                      //origin bottom left
+	init();
+	glutDisplayFunc(display);
+	glutKeyboardFunc(KeysDown);
+	glutKeyboardUpFunc(KeysUp);
+	glutMainLoop();
 	return 0;
 }

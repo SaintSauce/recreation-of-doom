@@ -92,8 +92,7 @@ DoomExecutable_EXTERNAL_OBJECTS =
 
 DoomExecutable: CMakeFiles/DoomExecutable.dir/src/main.c.o
 DoomExecutable: CMakeFiles/DoomExecutable.dir/build.make
-DoomExecutable: /opt/homebrew/lib/libglfw.3.4.dylib
-DoomExecutable: /opt/homebrew/lib/libGLEW.2.2.0.dylib
+DoomExecutable: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework
 DoomExecutable: CMakeFiles/DoomExecutable.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/pingan/recreation-of-doom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable DoomExecutable"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DoomExecutable.dir/link.txt --verbose=$(VERBOSE)

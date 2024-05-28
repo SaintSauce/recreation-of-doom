@@ -258,6 +258,18 @@ GLFWExampleC_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 GLFWExampleC_SOURCE_DIR:STATIC=/Users/pingan/recreation-of-doom
 
+//Path to a file.
+GLUT_INCLUDE_DIR:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/GLUT.framework/Headers
+
+//Path to a library.
+GLUT_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/glut.framework
+
+//Cocoa framework for OSX
+GLUT_cocoa_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/Cocoa.framework
+
+//GLUT library for OSX
+GLUT_glut_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/GLUT.framework
+
 //Include for the OpenGL GLU library
 OPENGL_GLU_INCLUDE_DIR:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework
 
@@ -270,11 +282,23 @@ OPENGL_gl_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/
 //OpenGL GLU library
 OPENGL_glu_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework
 
+//Arguments to supply to pkg-config
+PKG_CONFIG_ARGN:STRING=
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/opt/homebrew/bin/pkg-config
+
+//The directory containing a CMake configuration file for freeglut.
+freeglut_DIR:PATH=/opt/homebrew/lib/cmake/FreeGLUT
+
 //The directory containing a CMake configuration file for glad.
 glad_DIR:PATH=glad_DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for glfw3.
 glfw3_DIR:PATH=/opt/homebrew/lib/cmake/glfw3
+
+//Path to a library.
+pkgcfg_lib_PC_GLUT_glut:FILEPATH=/opt/homebrew/Cellar/freeglut/3.4.0/lib/libglut.dylib
 
 
 ########################
@@ -424,6 +448,8 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding GLEW
 FIND_PACKAGE_MESSAGE_DETAILS_GLEW:INTERNAL=[/opt/homebrew/lib/cmake/glew/glew-config.cmake][v()]
+//Details about finding GLUT
+FIND_PACKAGE_MESSAGE_DETAILS_GLUT:INTERNAL=[/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/GLUT.framework][/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/GLUT.framework/Headers][v()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework][/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework][c ][v()]
 //Details about finding Threads
@@ -432,6 +458,12 @@ FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 GLEW_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GLEW_LIBRARY_RELEASE
 GLEW_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLUT_INCLUDE_DIR
+GLUT_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLUT_cocoa_LIBRARY
+GLUT_cocoa_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLUT_glut_LIBRARY
+GLUT_glut_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_GLU_INCLUDE_DIR
 OPENGL_GLU_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_INCLUDE_DIR
@@ -440,4 +472,48 @@ OPENGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_glu_LIBRARY
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
+PC_GLUT_CFLAGS:INTERNAL=-DFREEGLUT_STATIC;-I/opt/homebrew/Cellar/freeglut/3.4.0/include
+PC_GLUT_CFLAGS_I:INTERNAL=
+PC_GLUT_CFLAGS_OTHER:INTERNAL=-DFREEGLUT_STATIC
+PC_GLUT_FOUND:INTERNAL=1
+PC_GLUT_INCLUDEDIR:INTERNAL=/opt/homebrew/Cellar/freeglut/3.4.0/include
+PC_GLUT_INCLUDE_DIRS:INTERNAL=/opt/homebrew/Cellar/freeglut/3.4.0/include
+PC_GLUT_LDFLAGS:INTERNAL=-L/opt/homebrew/Cellar/freeglut/3.4.0/lib;-lglut
+PC_GLUT_LDFLAGS_OTHER:INTERNAL=
+PC_GLUT_LIBDIR:INTERNAL=/opt/homebrew/Cellar/freeglut/3.4.0/lib
+PC_GLUT_LIBRARIES:INTERNAL=glut
+PC_GLUT_LIBRARY_DIRS:INTERNAL=/opt/homebrew/Cellar/freeglut/3.4.0/lib
+PC_GLUT_LIBS:INTERNAL=
+PC_GLUT_LIBS_L:INTERNAL=
+PC_GLUT_LIBS_OTHER:INTERNAL=
+PC_GLUT_LIBS_PATHS:INTERNAL=
+PC_GLUT_MODULE_NAME:INTERNAL=glut
+PC_GLUT_PREFIX:INTERNAL=/opt/homebrew/Cellar/freeglut/3.4.0
+PC_GLUT_STATIC_CFLAGS:INTERNAL=-DFREEGLUT_STATIC;-I/opt/homebrew/Cellar/freeglut/3.4.0/include
+PC_GLUT_STATIC_CFLAGS_I:INTERNAL=
+PC_GLUT_STATIC_CFLAGS_OTHER:INTERNAL=-DFREEGLUT_STATIC
+PC_GLUT_STATIC_INCLUDE_DIRS:INTERNAL=/opt/homebrew/Cellar/freeglut/3.4.0/include
+PC_GLUT_STATIC_LDFLAGS:INTERNAL=-L/opt/homebrew/Cellar/freeglut/3.4.0/lib;-lglut;-lX11;-lXxf86vm;-lXrandr;-lGL;-lm
+PC_GLUT_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_GLUT_STATIC_LIBDIR:INTERNAL=
+PC_GLUT_STATIC_LIBRARIES:INTERNAL=glut;X11;Xxf86vm;Xrandr;GL;m
+PC_GLUT_STATIC_LIBRARY_DIRS:INTERNAL=/opt/homebrew/Cellar/freeglut/3.4.0/lib
+PC_GLUT_STATIC_LIBS:INTERNAL=
+PC_GLUT_STATIC_LIBS_L:INTERNAL=
+PC_GLUT_STATIC_LIBS_OTHER:INTERNAL=
+PC_GLUT_STATIC_LIBS_PATHS:INTERNAL=
+PC_GLUT_VERSION:INTERNAL=3.4.0
+PC_GLUT_glut_INCLUDEDIR:INTERNAL=
+PC_GLUT_glut_LIBDIR:INTERNAL=
+PC_GLUT_glut_PREFIX:INTERNAL=
+PC_GLUT_glut_VERSION:INTERNAL=
+//ADVANCED property for variable: PKG_CONFIG_ARGN
+PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+__pkg_config_arguments_PC_GLUT:INTERNAL=QUIET;glut
+__pkg_config_checked_PC_GLUT:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_GLUT_glut
+pkgcfg_lib_PC_GLUT_glut-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=/opt/homebrew/Cellar/freeglut/3.4.0/lib
 
