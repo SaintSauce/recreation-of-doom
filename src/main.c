@@ -1,10 +1,14 @@
+/*
+	-> 10 : 45
+*/
+
 #define GL_SILENCE_DEPRECATION
 
 #include <math.h>
 #include <stdio.h>
 #include <GL/freeglut.h>
 
-#define RESOLUTION				1								// Resolution scale factor
+#define RESOLUTION				2								// Resolution scale factor
 #define SCREEN_WIDTH			(160 * RESOLUTION)				// Screen width
 #define SCREEN_HEIGHT			(120 * RESOLUTION)				// Screen height
 #define HALF_SCREEN_WIDTH		(SCREEN_WIDTH/2)				// Half of screen width
@@ -12,13 +16,16 @@
 #define PIXEL_SCALE				(4/RESOLUTION)					// OpenGL pixel scale
 #define WINDOW_WIDTH			(SCREEN_WIDTH * PIXEL_SCALE)	// OpenGL Window Width
 #define WINDOW_HEIGHT			(SCREEN_HEIGHT * PIXEL_SCALE)	// OpenGL Window Height
+
 #define numSect					4								// number of sectors
 #define numWall					16								// number of walls
+
+#define FOV_VAL 				300								// need to convert later
 
 // ----------------------------------------------------------------------------------------
 
 typedef struct {
-	int prev, curr;			// to create constant frame rate
+	int prev, curr;			// only draw constant framerate
 } time_t; time_t T;
 
 typedef struct {
@@ -53,6 +60,11 @@ typedef struct {
 	int surface;			// is there a surface to draw
 } sectors; sectors S[30];
 
+typedef struct {
+	int fov_scale;
+	// Will add more stuff
+} RenderSettings; RenderSettings settings;
+
 // ----------------------------------------------------------------------------------------
 
 void drawPixel(int x, int y, int c) {
@@ -78,24 +90,19 @@ void drawPixel(int x, int y, int c) {
 }
 
 void movePlayer() {
-
-	/*
-		wtf. -> 7 : 00
-	*/
-
 	// Move up, down, left, right
 	if (K.a && !K.m) { P.a -= 4; if (P.a < 0) { P.a += 360; } }
 	if (K.d && !K.m) { P.a += 4; if (P.a > 359) { P.a -= 360; } }
 
-	int dx = M.sin[P.a] * 10.0;
-	int dy = M.cos[P.a] * 10.0;
+	int dx = M.sin[P.a] * 10.0;							// player x direction
+	int dy = M.cos[P.a] * 10.0;							// player y direction
 
-	if (K.w && !K.m) { P.x += dx; P.y += dy; }
-	if (K.s && !K.m) { P.x -= dx; P.y -= dy; }
+	if (K.w && !K.m) { P.x += dx; P.y += dy; }			// move forward (in current direction)
+	if (K.s && !K.m) { P.x -= dx; P.y -= dy; }			// move backwards (in current direction)
 
 	// Strafe left, right
-	if (K.sr) { P.x += dy; P.y -= dx; }
-	if (K.sl) { P.x -= dy; P.y += dx; }
+	if (K.sl) { P.x += dy; P.y -= dx; }					// strafe left
+	if (K.sr) { P.x -= dy; P.y += dx; }					// strafe right
 
 	// Move up, down, look up, look down
 	if (K.a && K.m) { P.l -= 1; }						// look up
@@ -105,9 +112,7 @@ void movePlayer() {
 }
 
 void clearBackground() {
-
 	int x, y;
-
 	for (y = 0; y < SCREEN_HEIGHT; y++) {
 		for (x = 0; x < SCREEN_WIDTH; x++) {
 			drawPixel(x, y, 8);						// clear screen to background color
@@ -125,8 +130,7 @@ void clipBehindPlayer(int *x1, int *y1, int *z1, int x2, int y2, int z2) {	// cl
 	*z1 = *z1 + s * (z2 - (*z1));
 }
 
-void drawWall(int x1, int x2, int bot_1, int bot_2, int top_1, int top_2, int c, int surf_no) {
-
+void drawWall(int x1, int x2, int bot_1, int bot_2, int top_1, int top_2, int c, int s) {
 	// Hold the difference in distance
 	int dy_bottom = bot_2 - bot_1;								// y distance of bottom line
 	int dy_top = top_2 - top_1;									// y distance of top line
@@ -158,28 +162,24 @@ void drawWall(int x1, int x2, int bot_1, int bot_2, int top_1, int top_2, int c,
 		if (y1 > SCREEN_HEIGHT - 1) { y1 = SCREEN_HEIGHT - 1; }	// clip y
 		if (y2 > SCREEN_HEIGHT - 1) { y2 = SCREEN_HEIGHT - 1; }	// clip y
 
-		if (S[surf_no].surface == 1) { S[surf_no].surf[x] = y1; continue; } // save bottom points
-		if (S[surf_no].surface == 2) { S[surf_no].surf[x] = y2; continue; } // save top points
-		if (S[surf_no].surface == 1) { for (y = S[surf_no].surf[x]; y < y1; y++) { drawPixel(x, y, S[surf_no].c1); }; } // bottom
-		if (S[surf_no].surface == 2) { for (y = y2; y < S[surf_no].surf[x]; y++) { drawPixel(x, y, S[surf_no].c2); }; } // top
+		if (S[s].surface == 1) { S[s].surf[x] = y1; continue; } // save bottom points
+		if (S[s].surface == 2) { S[s].surf[x] = y2; continue; } // save top points
+		if (S[s].surface == -1) { for (y = S[s].surf[x]; y < y1; y++) { drawPixel(x, y, S[s].c1); }; } // bottom
+		if (S[s].surface == -2) { for (y = y2; y < S[s].surf[x]; y++) { drawPixel(x, y, S[s].c2); }; } // top
 
 		for (y = y1; y < y2; y++) {
-			drawPixel(x, y, c);			// normal wall
+			drawPixel(x, y, c);			// normal wall (front-facing wlal)
 		}
 	}
 }
 
-// basic distance formula
+// Euclidean distance formula
 int dist(int x1, int y1, int x2, int y2) {
 	int distance = sqrt( (x2 - x2) * (x2 - x1) + (y2 - y1) * (y2 - y1) );
 	return distance;
 }
 
-void draw3D() {									// draws a wall using 4 points
-
-	/*
-		wtf as well. -> 7 : 55
-	*/
+void draw3D() {
 
 	int s, w;
 
@@ -202,16 +202,16 @@ void draw3D() {									// draws a wall using 4 points
 		}
 	}
 
-	// draw sectors
+	// Draw sectors
 	for (s = 0; s < numSect; s++) {
 		
 		S[s].d = 0;										// clear distances
 
-		if (P.z < S[s].z1) { S[s].surface = 1; }		// bottom surface
-		else if (P.z < S[s].z1) { S[s].surface = 2; }	// top surface
-		else { S[s].surface = 0; }						// no surfaces
+		if (P.z < S[s].z1) { S[s].surface = 1; }		// bottom surface (Player is below surface value)
+		else if (P.z > S[s].z2) { S[s].surface = 2; }	// top surface (Player is above surface value)
+		else { S[s].surface = 0; }						// no surfaces (Player is in the middle)
 
-		for (int sides = 0; sides < 2; sides++) {		// draw each wall twice
+		for (int sides = 0; sides < 2; sides++) {		// draw each wall twice (back & front facing)
 
 			for (w = S[s].ws; w < S[s].we; w++) {
 
@@ -222,6 +222,19 @@ void draw3D() {									// draws a wall using 4 points
 				// Swap for surface
 				if (sides == 0) { int swp = x1; x1 = x2; x2 = swp; swp = y1; y1 = y2; y2 = swp; }
 				
+				/*
+					2D vector (x, y) matrix rotation
+
+					R(theta) = [
+						[cos theta, - sin theta]
+						[sin theta,   cos theta]
+					]
+
+					i.e. turn the (x, y) coordinates of the walls to the Player's angle
+
+					then (x, y)^T R = 2D vector of rotated coordinates
+				*/
+
 				// World X position
 				wx[0] = x1 * cosine - y1 * sine;
 				wx[1] = x2 * cosine - y2 * sine;
@@ -258,14 +271,12 @@ void draw3D() {									// draws a wall using 4 points
 				}
 
 				// Screen x, screen y position
-				wx[0] = wx[0] * 200 / wy[0] + HALF_SCREEN_WIDTH; wy[0] = wz[0] * 200 / wy[0] + HALF_SCREEN_HEIGHT;
-				wx[1] = wx[1] * 200 / wy[1] + HALF_SCREEN_WIDTH; wy[1] = wz[1] * 200 / wy[1] + HALF_SCREEN_HEIGHT;
-				wx[2] = wx[2] * 200 / wy[2] + HALF_SCREEN_WIDTH; wy[2] = wz[2] * 200 / wy[2] + HALF_SCREEN_HEIGHT;
-				wx[3] = wx[3] * 200 / wy[3] + HALF_SCREEN_WIDTH; wy[3] = wz[3] * 200 / wy[3] + HALF_SCREEN_HEIGHT;
+				wx[0] = wx[0] * settings.fov_scale / wy[0] + HALF_SCREEN_WIDTH; wy[0] = wz[0] * settings.fov_scale / wy[0] + HALF_SCREEN_HEIGHT;
+				wx[1] = wx[1] * settings.fov_scale / wy[1] + HALF_SCREEN_WIDTH; wy[1] = wz[1] * settings.fov_scale / wy[1] + HALF_SCREEN_HEIGHT;
+				wx[2] = wx[2] * settings.fov_scale / wy[2] + HALF_SCREEN_WIDTH; wy[2] = wz[2] * settings.fov_scale / wy[2] + HALF_SCREEN_HEIGHT;
+				wx[3] = wx[3] * settings.fov_scale / wy[3] + HALF_SCREEN_WIDTH; wy[3] = wz[3] * settings.fov_scale / wy[3] + HALF_SCREEN_HEIGHT;
 
 				// Draw points
-				// if (wx[0] > 0 && wx[0] < SCREEN_WIDTH && wy[0] > 0 && wy[0] < SCREEN_HEIGHT) { drawPixel(wx[0], wy[0], 0); }
-				// if (wx[1] > 0 && wx[1] < SCREEN_WIDTH && wy[1] > 0 && wy[1] < SCREEN_WIDTH) { drawPixel(wx[1], wy[1], 0); }
 				drawWall(wx[0], wx[1], wy[0], wy[1], wy[2], wy[3], W[w].c, s);
 			}
 
@@ -277,12 +288,18 @@ void draw3D() {									// draws a wall using 4 points
 }
 
 void display() {
-	if (T.prev - T.curr >= 50) {									// Only draw 50 frames per second
+	
+	/*
+		only draw new frame if delta > 1000 ms / fps (frame/s)
+	*/
+	
+	if (T.curr - T.prev >= 20) {									// Only draw 50 frames per second
+
 		clearBackground();
 		movePlayer();
 		draw3D();
 
-		T.curr = T.prev;
+		T.prev = T.curr;
 
 		/*
 			Double buffering
@@ -302,8 +319,9 @@ void display() {
 		glutReshapeWindow(WINDOW_WIDTH, WINDOW_HEIGHT);			// Prevent window rescaling
 	}
 
-	T.prev = glutGet(GLUT_ELAPSED_TIME);         				// 1000 ms per second
+	T.curr = glutGet(GLUT_ELAPSED_TIME);         				// 1000 ms per second
 	glutPostRedisplay();
+
 }
 
 void KeysDown(unsigned char key, int x, int y) { 
@@ -370,6 +388,9 @@ void init() {
 		M.cos[deg] = cos(deg / 180.0 * M_PI);
 		M.sin[deg] = sin(deg / 180.0 * M_PI);
 	}
+
+	// Renderer settings
+	settings.fov_scale = FOV_VAL;
 
 	// Initialize player variables
 	P.x = 70;
