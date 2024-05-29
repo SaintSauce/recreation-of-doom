@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /Users/pingan/recreation-of-doom/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/DoomExecutable.dir/all
+all: CMakeFiles/Doom.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/DoomExecutable.dir/clean
+clean: CMakeFiles/Doom.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/DoomExecutable.dir
+# Target rules for target CMakeFiles/Doom.dir
 
 # All Build rule for target.
-CMakeFiles/DoomExecutable.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/pingan/recreation-of-doom/build/CMakeFiles --progress-num=1,2 "Built target DoomExecutable"
-.PHONY : CMakeFiles/DoomExecutable.dir/all
+CMakeFiles/Doom.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doom.dir/build.make CMakeFiles/Doom.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doom.dir/build.make CMakeFiles/Doom.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/pingan/recreation-of-doom/build/CMakeFiles --progress-num=1,2 "Built target Doom"
+.PHONY : CMakeFiles/Doom.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/DoomExecutable.dir/rule: cmake_check_build_system
+CMakeFiles/Doom.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pingan/recreation-of-doom/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/DoomExecutable.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Doom.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pingan/recreation-of-doom/build/CMakeFiles 0
-.PHONY : CMakeFiles/DoomExecutable.dir/rule
+.PHONY : CMakeFiles/Doom.dir/rule
 
 # Convenience name for target.
-DoomExecutable: CMakeFiles/DoomExecutable.dir/rule
-.PHONY : DoomExecutable
+Doom: CMakeFiles/Doom.dir/rule
+.PHONY : Doom
 
 # clean rule for target.
-CMakeFiles/DoomExecutable.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/clean
-.PHONY : CMakeFiles/DoomExecutable.dir/clean
+CMakeFiles/Doom.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doom.dir/build.make CMakeFiles/Doom.dir/clean
+.PHONY : CMakeFiles/Doom.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

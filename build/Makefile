@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named DoomExecutable
+# Target rules for targets named Doom
 
 # Build rule for target.
-DoomExecutable: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DoomExecutable
-.PHONY : DoomExecutable
+Doom: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Doom
+.PHONY : Doom
 
 # fast build rule for target.
-DoomExecutable/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/build
-.PHONY : DoomExecutable/fast
+Doom/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doom.dir/build.make CMakeFiles/Doom.dir/build
+.PHONY : Doom/fast
 
 src/main.o: src/main.c.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doom.dir/build.make CMakeFiles/Doom.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -142,7 +142,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doom.dir/build.make CMakeFiles/Doom.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -150,7 +150,7 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DoomExecutable.dir/build.make CMakeFiles/DoomExecutable.dir/src/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doom.dir/build.make CMakeFiles/Doom.dir/src/main.c.s
 .PHONY : src/main.c.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... DoomExecutable"
+	@echo "... Doom"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
