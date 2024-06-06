@@ -1,28 +1,21 @@
 cmake_minimum_required(VERSION 3.10)
-project(DoomGame)
 
-# Specify C Standard
-set(CMAKE_C_STANDARD 99)
-set(CMAKE_C_STANDARD_REQUIRED ON)
+# Set the project name and version
+project(MyGame VERSION 1.0)
 
-# Add all source files in src directory
-file(GLOB SOURCES "src/*.c")
+# Specify the C standard
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED True)
 
-# Add executable
-add_executable(Doom ${SOURCES})
+# Add the executable
+add_executable(my_game src/main.c)
 
-find_package(OpenGL REQUIRED)
-target_link_libraries(Doom OpenGL::GL)
+# Specify the path to the SDL2 library and include files
+set(SDL2_INCLUDE_DIR "C:/MinGW/include/SDL2")
+set(SDL2_LIBRARY_DIR "C:/MinGW/lib")
 
-# Include directories
-target_include_directories(Doom PUBLIC ${PROJECT_SOURCE_DIR}/include)
+# Add the SDL2 include directory
+include_directories(${SDL2_INCLUDE_DIR})
 
-# Optionally, add the lib directory if you have custom libraries
-target_link_directories(Doom PRIVATE ${PROJECT_SOURCE_DIR}/lib)
-
-# Link against libglut.dylib
-find_library(GLUT_LIBRARY NAMES glut PATHS ${PROJECT_SOURCE_DIR}/lib/libglut.dylib)
-if(NOT GLUT_LIBRARY)
-    message(FATAL_ERROR "libglut.dylib not found")
-endif()
-target_link_libraries(Doom ${GLUT_LIBRARY})
+# Link the SDL2 library
+target_link_libraries(my_game mingw32 SDL2main SDL2)
