@@ -12,8 +12,10 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/user1/Documents/repo/c-stuff/recreation-of-doom/src/gamestate.c" "CMakeFiles/doom.dir/src/gamestate.c.o" "gcc" "CMakeFiles/doom.dir/src/gamestate.c.o.d"
   "/home/user1/Documents/repo/c-stuff/recreation-of-doom/src/graphics.c" "CMakeFiles/doom.dir/src/graphics.c.o" "gcc" "CMakeFiles/doom.dir/src/graphics.c.o.d"
   "/home/user1/Documents/repo/c-stuff/recreation-of-doom/src/input.c" "CMakeFiles/doom.dir/src/input.c.o" "gcc" "CMakeFiles/doom.dir/src/input.c.o.d"
+  "/home/user1/Documents/repo/c-stuff/recreation-of-doom/src/loadmap.c" "CMakeFiles/doom.dir/src/loadmap.c.o" "gcc" "CMakeFiles/doom.dir/src/loadmap.c.o.d"
   "/home/user1/Documents/repo/c-stuff/recreation-of-doom/src/main.c" "CMakeFiles/doom.dir/src/main.c.o" "gcc" "CMakeFiles/doom.dir/src/main.c.o.d"
   "/home/user1/Documents/repo/c-stuff/recreation-of-doom/src/movement.c" "CMakeFiles/doom.dir/src/movement.c.o" "gcc" "CMakeFiles/doom.dir/src/movement.c.o.d"
+  "/home/user1/Documents/repo/c-stuff/recreation-of-doom/src/utils.c" "CMakeFiles/doom.dir/src/utils.c.o" "gcc" "CMakeFiles/doom.dir/src/utils.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

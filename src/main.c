@@ -9,7 +9,7 @@
 #include "movement.h"
 #include "input.h"
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     // Initialize game state
     initGame();
 
@@ -22,10 +22,9 @@ int main(int argc, char *argv[]) {
         }
 
         // Update game state
-        updateGame();
-
-        // Render game
-        renderGame(renderer);
+        updateGame();                       // information-wise
+        renderGame(renderer);               // image-wise
+        clearBackground(renderer);
     }
 
     // Clean up

@@ -1,10 +1,9 @@
-#include "graphics.h"
-
 #include <stdio.h>
 #include <SDL2/SDL.h>
+#include "graphics.h"
 #include "config.h"
 
-void initGraphics(SDL_Window **window, SDL_Renderer **renderer) {
+void initGraphics(SDL_Window** window, SDL_Renderer** renderer) {
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         fprintf(stderr, "Error initializing SDL: %s\n", SDL_GetError());
@@ -26,17 +25,7 @@ void initGraphics(SDL_Window **window, SDL_Renderer **renderer) {
     }
 }
 
-void renderRect(SDL_Renderer *renderer, int x, int y, int width, int height) {
-    SDL_Rect rect = {x, y, width, height};
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_RenderFillRect(renderer, &rect);
-}
-
-void presentRenderer(SDL_Renderer *renderer) {
-    SDL_RenderPresent(renderer);
-}
-
-void cleanupGraphics(SDL_Window *window, SDL_Renderer *renderer) {
+void cleanupGraphics(SDL_Window* window, SDL_Renderer* renderer) {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();

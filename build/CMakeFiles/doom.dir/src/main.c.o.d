@@ -176,5 +176,7 @@ CMakeFiles/doom.dir/src/main.c.o: \
  /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/gamestate.h \
  /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/graphics.h \
  /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/engine.h \
+ /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/loadmap.h \
+ /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/utils.h \
  /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/movement.h \
  /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/input.h

@@ -225,6 +225,30 @@ src/input.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/input.c.s
 .PHONY : src/input.c.s
 
+src/loadmap.o: src/loadmap.c.o
+.PHONY : src/loadmap.o
+
+# target to build an object file
+src/loadmap.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/loadmap.c.o
+.PHONY : src/loadmap.c.o
+
+src/loadmap.i: src/loadmap.c.i
+.PHONY : src/loadmap.i
+
+# target to preprocess a source file
+src/loadmap.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/loadmap.c.i
+.PHONY : src/loadmap.c.i
+
+src/loadmap.s: src/loadmap.c.s
+.PHONY : src/loadmap.s
+
+# target to generate assembly for a file
+src/loadmap.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/loadmap.c.s
+.PHONY : src/loadmap.c.s
+
 src/main.o: src/main.c.o
 .PHONY : src/main.o
 
@@ -273,6 +297,30 @@ src/movement.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/movement.c.s
 .PHONY : src/movement.c.s
 
+src/utils.o: src/utils.c.o
+.PHONY : src/utils.o
+
+# target to build an object file
+src/utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/utils.c.o
+.PHONY : src/utils.c.o
+
+src/utils.i: src/utils.c.i
+.PHONY : src/utils.i
+
+# target to preprocess a source file
+src/utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/utils.c.i
+.PHONY : src/utils.c.i
+
+src/utils.s: src/utils.c.s
+.PHONY : src/utils.s
+
+# target to generate assembly for a file
+src/utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/utils.c.s
+.PHONY : src/utils.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -294,12 +342,18 @@ help:
 	@echo "... src/input.o"
 	@echo "... src/input.i"
 	@echo "... src/input.s"
+	@echo "... src/loadmap.o"
+	@echo "... src/loadmap.i"
+	@echo "... src/loadmap.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/movement.o"
 	@echo "... src/movement.i"
 	@echo "... src/movement.s"
+	@echo "... src/utils.o"
+	@echo "... src/utils.i"
+	@echo "... src/utils.s"
 .PHONY : help
 
 

@@ -2,6 +2,8 @@
     "files.associations": {
         "any": "c",
         "gamestate.h": "c",
-        "graphics.h": "c"
-    }
+        "graphics.h": "c",
+        "math.h": "c"
+    },
+    "C_Cpp.formatting": "vcFormat"
 }

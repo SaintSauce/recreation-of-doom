@@ -8,14 +8,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
 # Add all your source files here
-set(SOURCES
-    src/main.c
-    src/gamestate.c
-    src/graphics.c
-    src/engine.c
-    src/movement.c
-    src/input.c
-)
+file(GLOB SOURCES "src/*.c")
 
 add_executable(doom ${SOURCES})
 
@@ -26,4 +19,4 @@ find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
 # Link the SDL2 library
-target_link_libraries(doom ${SDL2_LIBRARIES})
+target_link_libraries(doom ${SDL2_LIBRARIES} m)

@@ -1,6 +1,8 @@
 #ifndef GAMESTATE_H
 #define GAMESTATE_H
 
+#define M_PI 3.14159265358979323846
+
 #include <SDL2/SDL.h>
 
 typedef struct {
@@ -14,24 +16,30 @@ typedef struct {
 } Key;
 
 typedef struct {
-    int x, y, z;
-    int health;
-
-    // Other player attributes
+    int x, y, z;             // player position. Z is up
+    int a;                 // player angle of rotation left right
+    int l;                 // variable to look up and down
 } Player;
+
+typedef struct {
+    float cos[360];        // Save sin cos in values 0 - 360 degrees 
+    float sin[360];
+} trig;
+
 
 // Game state variables
 extern Time T;
 extern Key K;
-extern Player p;
+extern Player P;
+extern trig M;
 extern int tick;
 extern SDL_bool done;
-extern SDL_Window *window;
-extern SDL_Renderer *renderer;
+extern SDL_Window* window;
+extern SDL_Renderer* renderer;
 
 // Function prototypes
 void initGame();
 void updateGame();
-void renderGame(SDL_Renderer *renderer);
+void renderGame(SDL_Renderer* renderer);
 
 #endif
