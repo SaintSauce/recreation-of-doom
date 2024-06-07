@@ -12,11 +12,9 @@ file(GLOB SOURCES "src/*.c")
 
 add_executable(doom ${SOURCES})
 
-# Find SDL2
+# Find SDL2 package
 find_package(SDL2 REQUIRED)
-
-# Add the SDL2 include directory
 include_directories(${SDL2_INCLUDE_DIRS})
 
-# Link the SDL2 library
+# Link SDL2 libraries
 target_link_libraries(doom ${SDL2_LIBRARIES} m)
