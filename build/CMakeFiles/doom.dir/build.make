@@ -69,19 +69,19 @@ include CMakeFiles/doom.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/doom.dir/flags.make
 
-CMakeFiles/doom.dir/src/engine.c.o: CMakeFiles/doom.dir/flags.make
-CMakeFiles/doom.dir/src/engine.c.o: /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/engine.c
-CMakeFiles/doom.dir/src/engine.c.o: CMakeFiles/doom.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user1/Documents/repo/c-stuff/recreation-of-doom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/doom.dir/src/engine.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/doom.dir/src/engine.c.o -MF CMakeFiles/doom.dir/src/engine.c.o.d -o CMakeFiles/doom.dir/src/engine.c.o -c /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/engine.c
+CMakeFiles/doom.dir/src/controls.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/controls.c.o: /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/controls.c
+CMakeFiles/doom.dir/src/controls.c.o: CMakeFiles/doom.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user1/Documents/repo/c-stuff/recreation-of-doom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/doom.dir/src/controls.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/doom.dir/src/controls.c.o -MF CMakeFiles/doom.dir/src/controls.c.o.d -o CMakeFiles/doom.dir/src/controls.c.o -c /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/controls.c
 
-CMakeFiles/doom.dir/src/engine.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/doom.dir/src/engine.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/engine.c > CMakeFiles/doom.dir/src/engine.c.i
+CMakeFiles/doom.dir/src/controls.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/doom.dir/src/controls.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/controls.c > CMakeFiles/doom.dir/src/controls.c.i
 
-CMakeFiles/doom.dir/src/engine.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/doom.dir/src/engine.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/engine.c -o CMakeFiles/doom.dir/src/engine.c.s
+CMakeFiles/doom.dir/src/controls.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/doom.dir/src/controls.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/controls.c -o CMakeFiles/doom.dir/src/controls.c.s
 
 CMakeFiles/doom.dir/src/gamestate.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/gamestate.c.o: /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/gamestate.c
@@ -153,19 +153,19 @@ CMakeFiles/doom.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/doom.dir/src/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/main.c -o CMakeFiles/doom.dir/src/main.c.s
 
-CMakeFiles/doom.dir/src/movement.c.o: CMakeFiles/doom.dir/flags.make
-CMakeFiles/doom.dir/src/movement.c.o: /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/movement.c
-CMakeFiles/doom.dir/src/movement.c.o: CMakeFiles/doom.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user1/Documents/repo/c-stuff/recreation-of-doom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/doom.dir/src/movement.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/doom.dir/src/movement.c.o -MF CMakeFiles/doom.dir/src/movement.c.o.d -o CMakeFiles/doom.dir/src/movement.c.o -c /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/movement.c
+CMakeFiles/doom.dir/src/renderer.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/renderer.c.o: /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/renderer.c
+CMakeFiles/doom.dir/src/renderer.c.o: CMakeFiles/doom.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user1/Documents/repo/c-stuff/recreation-of-doom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/doom.dir/src/renderer.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/doom.dir/src/renderer.c.o -MF CMakeFiles/doom.dir/src/renderer.c.o.d -o CMakeFiles/doom.dir/src/renderer.c.o -c /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/renderer.c
 
-CMakeFiles/doom.dir/src/movement.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/doom.dir/src/movement.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/movement.c > CMakeFiles/doom.dir/src/movement.c.i
+CMakeFiles/doom.dir/src/renderer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/doom.dir/src/renderer.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/renderer.c > CMakeFiles/doom.dir/src/renderer.c.i
 
-CMakeFiles/doom.dir/src/movement.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/doom.dir/src/movement.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/movement.c -o CMakeFiles/doom.dir/src/movement.c.s
+CMakeFiles/doom.dir/src/renderer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/doom.dir/src/renderer.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/renderer.c -o CMakeFiles/doom.dir/src/renderer.c.s
 
 CMakeFiles/doom.dir/src/utils.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/utils.c.o: /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/utils.c
@@ -183,25 +183,25 @@ CMakeFiles/doom.dir/src/utils.c.s: cmake_force
 
 # Object files for target doom
 doom_OBJECTS = \
-"CMakeFiles/doom.dir/src/engine.c.o" \
+"CMakeFiles/doom.dir/src/controls.c.o" \
 "CMakeFiles/doom.dir/src/gamestate.c.o" \
 "CMakeFiles/doom.dir/src/graphics.c.o" \
 "CMakeFiles/doom.dir/src/input.c.o" \
 "CMakeFiles/doom.dir/src/loadmap.c.o" \
 "CMakeFiles/doom.dir/src/main.c.o" \
-"CMakeFiles/doom.dir/src/movement.c.o" \
+"CMakeFiles/doom.dir/src/renderer.c.o" \
 "CMakeFiles/doom.dir/src/utils.c.o"
 
 # External object files for target doom
 doom_EXTERNAL_OBJECTS =
 
-doom: CMakeFiles/doom.dir/src/engine.c.o
+doom: CMakeFiles/doom.dir/src/controls.c.o
 doom: CMakeFiles/doom.dir/src/gamestate.c.o
 doom: CMakeFiles/doom.dir/src/graphics.c.o
 doom: CMakeFiles/doom.dir/src/input.c.o
 doom: CMakeFiles/doom.dir/src/loadmap.c.o
 doom: CMakeFiles/doom.dir/src/main.c.o
-doom: CMakeFiles/doom.dir/src/movement.c.o
+doom: CMakeFiles/doom.dir/src/renderer.c.o
 doom: CMakeFiles/doom.dir/src/utils.c.o
 doom: CMakeFiles/doom.dir/build.make
 doom: /usr/lib/libSDL2main.a

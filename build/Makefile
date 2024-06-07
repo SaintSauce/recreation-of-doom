@@ -129,29 +129,29 @@ doom/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/build
 .PHONY : doom/fast
 
-src/engine.o: src/engine.c.o
-.PHONY : src/engine.o
+src/controls.o: src/controls.c.o
+.PHONY : src/controls.o
 
 # target to build an object file
-src/engine.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/engine.c.o
-.PHONY : src/engine.c.o
+src/controls.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/controls.c.o
+.PHONY : src/controls.c.o
 
-src/engine.i: src/engine.c.i
-.PHONY : src/engine.i
+src/controls.i: src/controls.c.i
+.PHONY : src/controls.i
 
 # target to preprocess a source file
-src/engine.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/engine.c.i
-.PHONY : src/engine.c.i
+src/controls.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/controls.c.i
+.PHONY : src/controls.c.i
 
-src/engine.s: src/engine.c.s
-.PHONY : src/engine.s
+src/controls.s: src/controls.c.s
+.PHONY : src/controls.s
 
 # target to generate assembly for a file
-src/engine.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/engine.c.s
-.PHONY : src/engine.c.s
+src/controls.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/controls.c.s
+.PHONY : src/controls.c.s
 
 src/gamestate.o: src/gamestate.c.o
 .PHONY : src/gamestate.o
@@ -273,29 +273,29 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/main.c.s
 .PHONY : src/main.c.s
 
-src/movement.o: src/movement.c.o
-.PHONY : src/movement.o
+src/renderer.o: src/renderer.c.o
+.PHONY : src/renderer.o
 
 # target to build an object file
-src/movement.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/movement.c.o
-.PHONY : src/movement.c.o
+src/renderer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/renderer.c.o
+.PHONY : src/renderer.c.o
 
-src/movement.i: src/movement.c.i
-.PHONY : src/movement.i
+src/renderer.i: src/renderer.c.i
+.PHONY : src/renderer.i
 
 # target to preprocess a source file
-src/movement.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/movement.c.i
-.PHONY : src/movement.c.i
+src/renderer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/renderer.c.i
+.PHONY : src/renderer.c.i
 
-src/movement.s: src/movement.c.s
-.PHONY : src/movement.s
+src/renderer.s: src/renderer.c.s
+.PHONY : src/renderer.s
 
 # target to generate assembly for a file
-src/movement.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/movement.c.s
-.PHONY : src/movement.c.s
+src/renderer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/renderer.c.s
+.PHONY : src/renderer.c.s
 
 src/utils.o: src/utils.c.o
 .PHONY : src/utils.o
@@ -330,9 +330,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... doom"
-	@echo "... src/engine.o"
-	@echo "... src/engine.i"
-	@echo "... src/engine.s"
+	@echo "... src/controls.o"
+	@echo "... src/controls.i"
+	@echo "... src/controls.s"
 	@echo "... src/gamestate.o"
 	@echo "... src/gamestate.i"
 	@echo "... src/gamestate.s"
@@ -348,9 +348,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/movement.o"
-	@echo "... src/movement.i"
-	@echo "... src/movement.s"
+	@echo "... src/renderer.o"
+	@echo "... src/renderer.i"
+	@echo "... src/renderer.s"
 	@echo "... src/utils.o"
 	@echo "... src/utils.i"
 	@echo "... src/utils.s"

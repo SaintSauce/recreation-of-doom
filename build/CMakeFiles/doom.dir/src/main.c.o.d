@@ -172,11 +172,9 @@ CMakeFiles/doom.dir/src/main.c.o: \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/SDL_locale.h \
  /usr/include/SDL2/SDL_misc.h \
+ /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/renderer.h \
  /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/config.h \
  /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/gamestate.h \
- /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/graphics.h \
- /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/engine.h \
  /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/loadmap.h \
  /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/utils.h \
- /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/movement.h \
- /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/input.h
+ /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/graphics.h

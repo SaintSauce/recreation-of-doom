@@ -1,21 +1,17 @@
-CMakeFiles/doom.dir/src/gamestate.c.o: \
- /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/gamestate.c \
- /usr/include/stdc-predef.h \
- /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/config.h \
- /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/controls.h \
- /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/gamestate.h \
- /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
- /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
- /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
- /usr/include/SDL2/close_code.h /usr/include/sys/types.h \
- /usr/include/features.h /usr/include/features-time64.h \
- /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \
- /usr/include/sys/cdefs.h /usr/include/bits/long-double.h \
- /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
- /usr/include/bits/types.h /usr/include/bits/typesizes.h \
- /usr/include/bits/time64.h /usr/include/bits/types/clock_t.h \
- /usr/include/bits/types/clockid_t.h /usr/include/bits/types/time_t.h \
- /usr/include/bits/types/timer_t.h \
+CMakeFiles/doom.dir/src/renderer.c.o: \
+ /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/renderer.c \
+ /usr/include/stdc-predef.h /usr/include/SDL2/SDL.h \
+ /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
+ /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
+ /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
+ /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/features-time64.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
+ /usr/include/bits/types/clock_t.h /usr/include/bits/types/clockid_t.h \
+ /usr/include/bits/types/time_t.h /usr/include/bits/types/timer_t.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/14.1.1/include/stddef.h \
  /usr/include/bits/stdint-intn.h /usr/include/endian.h \
  /usr/include/bits/endian.h /usr/include/bits/endianness.h \
@@ -175,9 +171,7 @@ CMakeFiles/doom.dir/src/gamestate.c.o: \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/SDL_locale.h \
  /usr/include/SDL2/SDL_misc.h \
- /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/graphics.h \
- /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/input.h \
- /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/renderer.h \
+ /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/config.h \
+ /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/gamestate.h \
  /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/loadmap.h \
- /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/utils.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/14.1.1/include/stdbool.h
+ /home/user1/Documents/repo/c-stuff/recreation-of-doom/src/utils.h
