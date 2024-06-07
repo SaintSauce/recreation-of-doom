@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "any": "c",
+        "gamestate.h": "c",
+        "graphics.h": "c"
+    }
+}

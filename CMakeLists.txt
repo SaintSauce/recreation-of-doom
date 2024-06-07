@@ -1,21 +1,29 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Set the project name and version
-project(MyGame VERSION 1.0)
+project(Doom)
 
 # Specify the C standard
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
-# Add the executable
-add_executable(my_game src/main.c)
+# Add all your source files here
+set(SOURCES
+    src/main.c
+    src/gamestate.c
+    src/graphics.c
+    src/engine.c
+    src/movement.c
+    src/input.c
+)
 
-# Specify the path to the SDL2 library and include files
-set(SDL2_INCLUDE_DIR "C:/MinGW/include/SDL2")
-set(SDL2_LIBRARY_DIR "C:/MinGW/lib")
+add_executable(doom ${SOURCES})
+
+# Find SDL2
+find_package(SDL2 REQUIRED)
 
 # Add the SDL2 include directory
-include_directories(${SDL2_INCLUDE_DIR})
+include_directories(${SDL2_INCLUDE_DIRS})
 
 # Link the SDL2 library
-target_link_libraries(my_game mingw32 SDL2main SDL2)
+target_link_libraries(doom ${SDL2_LIBRARIES})

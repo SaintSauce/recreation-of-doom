@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.29.3/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/Cellar/cmake/3.29.3/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/pingan/recreation-of-doom
+CMAKE_SOURCE_DIR = /home/user1/Documents/repo/c-stuff/recreation-of-doom
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/pingan/recreation-of-doom/build
+CMAKE_BINARY_DIR = /home/user1/Documents/repo/c-stuff/recreation-of-doom/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/pingan/recreation-of-doom/build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	/opt/homebrew/Cellar/cmake/3.29.3/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/opt/homebrew/Cellar/cmake/3.29.3/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pingan/recreation-of-doom/build/CMakeFiles /Users/pingan/recreation-of-doom/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user1/Documents/repo/c-stuff/recreation-of-doom/build/CMakeFiles /home/user1/Documents/repo/c-stuff/recreation-of-doom/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pingan/recreation-of-doom/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user1/Documents/repo/c-stuff/recreation-of-doom/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,24 +117,120 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Doom
+# Target rules for targets named doom
 
 # Build rule for target.
-Doom: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Doom
-.PHONY : Doom
+doom: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 doom
+.PHONY : doom
 
 # fast build rule for target.
-Doom/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doom.dir/build.make CMakeFiles/Doom.dir/build
-.PHONY : Doom/fast
+doom/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/build
+.PHONY : doom/fast
+
+src/engine.o: src/engine.c.o
+.PHONY : src/engine.o
+
+# target to build an object file
+src/engine.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/engine.c.o
+.PHONY : src/engine.c.o
+
+src/engine.i: src/engine.c.i
+.PHONY : src/engine.i
+
+# target to preprocess a source file
+src/engine.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/engine.c.i
+.PHONY : src/engine.c.i
+
+src/engine.s: src/engine.c.s
+.PHONY : src/engine.s
+
+# target to generate assembly for a file
+src/engine.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/engine.c.s
+.PHONY : src/engine.c.s
+
+src/gamestate.o: src/gamestate.c.o
+.PHONY : src/gamestate.o
+
+# target to build an object file
+src/gamestate.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/gamestate.c.o
+.PHONY : src/gamestate.c.o
+
+src/gamestate.i: src/gamestate.c.i
+.PHONY : src/gamestate.i
+
+# target to preprocess a source file
+src/gamestate.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/gamestate.c.i
+.PHONY : src/gamestate.c.i
+
+src/gamestate.s: src/gamestate.c.s
+.PHONY : src/gamestate.s
+
+# target to generate assembly for a file
+src/gamestate.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/gamestate.c.s
+.PHONY : src/gamestate.c.s
+
+src/graphics.o: src/graphics.c.o
+.PHONY : src/graphics.o
+
+# target to build an object file
+src/graphics.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/graphics.c.o
+.PHONY : src/graphics.c.o
+
+src/graphics.i: src/graphics.c.i
+.PHONY : src/graphics.i
+
+# target to preprocess a source file
+src/graphics.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/graphics.c.i
+.PHONY : src/graphics.c.i
+
+src/graphics.s: src/graphics.c.s
+.PHONY : src/graphics.s
+
+# target to generate assembly for a file
+src/graphics.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/graphics.c.s
+.PHONY : src/graphics.c.s
+
+src/input.o: src/input.c.o
+.PHONY : src/input.o
+
+# target to build an object file
+src/input.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/input.c.o
+.PHONY : src/input.c.o
+
+src/input.i: src/input.c.i
+.PHONY : src/input.i
+
+# target to preprocess a source file
+src/input.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/input.c.i
+.PHONY : src/input.c.i
+
+src/input.s: src/input.c.s
+.PHONY : src/input.s
+
+# target to generate assembly for a file
+src/input.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/input.c.s
+.PHONY : src/input.c.s
 
 src/main.o: src/main.c.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doom.dir/build.make CMakeFiles/Doom.dir/src/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -142,7 +238,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doom.dir/build.make CMakeFiles/Doom.dir/src/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -150,8 +246,32 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Doom.dir/build.make CMakeFiles/Doom.dir/src/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/main.c.s
 .PHONY : src/main.c.s
+
+src/movement.o: src/movement.c.o
+.PHONY : src/movement.o
+
+# target to build an object file
+src/movement.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/movement.c.o
+.PHONY : src/movement.c.o
+
+src/movement.i: src/movement.c.i
+.PHONY : src/movement.i
+
+# target to preprocess a source file
+src/movement.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/movement.c.i
+.PHONY : src/movement.c.i
+
+src/movement.s: src/movement.c.s
+.PHONY : src/movement.s
+
+# target to generate assembly for a file
+src/movement.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/movement.c.s
+.PHONY : src/movement.c.s
 
 # Help Target
 help:
@@ -161,10 +281,25 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Doom"
+	@echo "... doom"
+	@echo "... src/engine.o"
+	@echo "... src/engine.i"
+	@echo "... src/engine.s"
+	@echo "... src/gamestate.o"
+	@echo "... src/gamestate.i"
+	@echo "... src/gamestate.s"
+	@echo "... src/graphics.o"
+	@echo "... src/graphics.i"
+	@echo "... src/graphics.s"
+	@echo "... src/input.o"
+	@echo "... src/input.i"
+	@echo "... src/input.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/movement.o"
+	@echo "... src/movement.i"
+	@echo "... src/movement.s"
 .PHONY : help
 
 
