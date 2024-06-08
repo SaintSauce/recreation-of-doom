@@ -12,8 +12,7 @@ What you need to install the software and how to install them:
 
 - CMake (Version 3.10 or higher)
 - A C compiler (GCC, Clang, etc.)
-- GLFW 3.3 or higher
-- GLAD for OpenGL loading
+- SDL2 (idk the version.)
 
 ### Installing
 
